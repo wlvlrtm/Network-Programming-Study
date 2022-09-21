@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class Example2a {
     public static void fileCopy(String sourceFile, String targetFile) throws IOException {
-        FileInputStream in = new FileInputStream(sourceFile);
-        FileOutputStream out = new FileOutputStream(targetFile);
+        FileInputStream in = new FileInputStream(sourceFile);       // File -> Code
+        FileOutputStream out = new FileOutputStream(targetFile);    // Code -> File
         byte[] arr = new byte[1024];
         
         while(true) {
@@ -25,6 +25,7 @@ public class Example2a {
         out.close();
     }
 
+    
     public static void main(String[] args) throws IOException {
         fileCopy("/Users/araina/Documents/Programming-Study/Network-Programming-Study/file/ex2a-source.txt", 
                  "/Users/araina/Documents/Programming-Study/Network-Programming-Study/file/ex2a-target.txt");    

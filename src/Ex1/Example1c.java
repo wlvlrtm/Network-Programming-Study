@@ -17,6 +17,6 @@ public class Example1c {
     }
      
     public static void main(String[] args) throws IOException {
-        generateCharacters(System.out);
+        generateCharacters(System.out); // None
     }
 }
