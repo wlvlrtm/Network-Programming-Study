@@ -6,22 +6,20 @@ import java.io.IOException;
 
 public class Example2e {
     public static void fileCopy(String sourceFile, String targetFile) throws IOException {
-        try (FileInputStream in = new FileInputStream(sourceFile); 
-             FileOutputStream out = new FileOutputStream(targetFile)) {
+        try (FileInputStream fileIn = new FileInputStream(sourceFile); FileOutputStream fileOut = new FileOutputStream(targetFile)) {
             while (true) {
-                int b = in.read();
+                int data = fileIn.read();
                 
-                if (b == -1) {
+                if (data == -1) {
                     break;
                 }
 
-                out.write(b);
+                fileOut.write(data);
             }
         }
     }
     
-    
     public static void main(String[] args) throws IOException {
-        fileCopy("c:/temp/a.txt", "c:/temp/b.txt");
+        fileCopy("/Users/araina/Documents/Programming-Study/Network-Programming-Study/file/ex2e-source.txt", "/Users/araina/Documents/Programming-Study/Network-Programming-Study/file/ex2e-target.txt");
     }
 }

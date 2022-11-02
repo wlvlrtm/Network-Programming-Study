@@ -5,18 +5,18 @@ import java.util.Arrays;
 
 
 public class Example3b {
-    static void receive(InputStream in, byte[] a, int bytesToRead) throws IOException {
+    public static void receive(InputStream in, byte[] data, int bytesToRead) throws IOException {
         int bytesRead = 0;
 
         while (bytesRead < bytesToRead) {
-            bytesRead += in.read(a, bytesRead, bytesToRead - bytesRead);
+            bytesRead += in.read(data, bytesRead, bytesToRead - bytesRead);
         }
     }
-
+    
     public static void main(String[] args) throws IOException {
-        byte[] a = new byte[10];
+        byte[] data = new byte[10];
 
-        receive(System.in, a, 10);
-        System.out.println(Arrays.toString(a));
+        receive(System.in, data, 10);
+        System.out.println(Arrays.toString(data));
     }
 }

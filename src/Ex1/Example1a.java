@@ -6,20 +6,19 @@ import java.io.OutputStream;
 
 public class Example1a {
     public static void generateCharacters(OutputStream out) throws IOException {
-        int firstPrintableCharacter = 33;
-        int lastPrintableCharacter = 126;        
-        
-        for (int ch = firstPrintableCharacter; ch <= lastPrintableCharacter; ++ch) {
-            out.write(ch);  // 33 ~ 126
-        }
+        int firstCharacter = 33;
+        int lastCharacter = 126;
 
-        out.write('\n');    // CR
-        out.write('\r');    // LF
+        for (int ch = firstCharacter; ch <= lastCharacter; ++ch) {
+            out.write(ch);
+        }
+        out.write('\r');
+        out.write('\n');
     }
-    
-    
+
+
     public static void main(String[] args) throws IOException {
-        generateCharacters(System.out); // Console
-        generateCharacters(new FileOutputStream("/Users/araina/Documents/Programming-Study/Network-Programming-Study/file/ex1b.txt"));   // File
+        generateCharacters(System.out);
+        generateCharacters(new FileOutputStream("/Users/araina/Documents/Programming-Study/Network-Programming-Study/file/ex1a.txt"));
     }
 }

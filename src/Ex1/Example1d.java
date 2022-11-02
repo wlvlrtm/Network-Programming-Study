@@ -5,16 +5,13 @@ import java.io.IOException;
 
 public class Example1d {
     public static void generateCharacters(OutputStream out) throws IOException {
-        int firstPrintableCharacter = 33;
-        int lastPrintableCharacter = 126;
+        int firstCharacter = 33;
+        int lastCharacter = 126;
 
-        for (int character = firstPrintableCharacter; character <= lastPrintableCharacter; ++character) {
-            out.write(character);
+        for (int ch = firstCharacter; ch <= lastCharacter; ++ch) {
+            out.write(ch);
         }
-
-        //out.write('\r');
-        //out.write('\n');
-
+        
         out.flush();
     }
      

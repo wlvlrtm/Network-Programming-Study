@@ -6,24 +6,35 @@ import java.io.IOException;
 
 public class Example2d {
     public static void fileCopy(String sourceFile, String targetFile) throws IOException {
-        try (FileInputStream in = new FileInputStream(sourceFile);
-             FileOutputStream out = new FileOutputStream(targetFile)) {
-            byte[] a = new byte[1024];
-            
-            while (true) {
-                int count = in.read(a);
+        FileInputStream fileIn = null;
+        FileOutputStream fileOut = null;
 
-                if (count < 0) {    // if, -1
+        try {
+            fileIn = new FileInputStream(sourceFile);
+            fileOut = new FileOutputStream(targetFile);
+            byte[] data = new byte[1024];
+
+            while (true) {
+                int count = fileIn.read(data);
+
+                if (count < 0) {
                     break;
                 }
 
-                out.write(a, 0, count);
-            } 
+                fileOut.write(data, 0, count);
+            }
+        }
+        finally {
+            if (fileIn != null) {
+                fileIn.close();
+            }
+            if (fileOut != null) {
+                fileOut.close();
+            }
         }
     }
 
-
     public static void main(String[] args) throws IOException {
         fileCopy("c:/temp/a.txt", "c:/temp/b.txt");
-    } 
+    }
 }

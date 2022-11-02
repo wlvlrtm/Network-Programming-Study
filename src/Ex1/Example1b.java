@@ -5,22 +5,20 @@ import java.io.OutputStream;
 
 public class Example1b {
     public static void generateCharacters(OutputStream out) throws IOException {
-        int firstPrintableCharacter = 33;
-        int lastPrintableCharacter = 126;
-
-        int size = (lastPrintableCharacter - firstPrintableCharacter + 1) + 2;  // (first ~ last) + CF/LF (2)
+        int firstCharacter = 33;
+        int lastCharacter = 126;
+        int size = (lastCharacter - firstCharacter + 1) + 2;
         int index = 0;
-        byte[] arr = new byte[size];    // ASCII Array
+        byte[] data = new byte[size];
         
-        for (int character = firstPrintableCharacter; character <= lastPrintableCharacter; ++character) {
-            System.out.println(character);
-            arr[index++] = (byte)character;
+        for (int ch = firstCharacter; ch <= lastCharacter; ++ch) {
+            data[index++] = (byte)ch;
         }
 
-        arr[index++] = '\r';    // CR
-        arr[index++] = '\n';    // LF
-        
-        out.write(arr);
+        data[index++] = '\r';
+        data[index++] = '\n';
+
+        out.write(data);
     }
 
 
